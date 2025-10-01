@@ -1,7 +1,7 @@
 import express from 'express';
 import CategoryRoutes from './routes/CategoryRoutes.js';
 // import ProductRoutes from './routes/ProductRoutes.js';
-// import OrderRoutes from './routes/OrderRoutes.js';
+import OrderRoutes from './routes/OrderRoutes.js';
 // import SupplierRoutes from './routes/SupplierRoutes.js';
 import errorHandler from './middlewares/errorHandler.js';
 
@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true })); // para formularios
 // Rutas API
 app.use('/api/categories', CategoryRoutes);
 // app.use('/api/products', ProductRoutes);
-// app.use('/api/orders', OrderRoutes);
+app.use('/api/orders', OrderRoutes);
 // app.use('/api/suppliers', SupplierRoutes);
 
 // Ruta de prueba
