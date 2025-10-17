@@ -19,6 +19,16 @@ class Category {
         );
         return rows;
     }
+    /**
+     * Obtener una categoria por nombre
+     * @param {*} name 
+     */
+    static async getByName(name) {
+        const [rows] = await pool.query(
+            'SELECT * FROM categories WHERE `name` = ?', [name]
+        );
+        return rows;
+    }
 
     /**
      * Crea una nueva categoria
@@ -31,7 +41,7 @@ class Category {
             'INSERT INTO categories (name, description) VALUES (?, ?)',
             [name, description]
         );
-        return { id: result.insertId, name, description };
+        return { id: result.insertId, ...categoryData };
     }
 
     /**
