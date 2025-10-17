@@ -20,7 +20,7 @@ class Order {
             'INSERT INTO orders (order_date, customer_name) VALUES (?, ?)',
             [order_date, customer_name]
         );
-        return { id: result.insertId, orderData, customer_name };
+        return { id: result.insertId, ...orderData };
     }
 
     static async update(id, orderData) {

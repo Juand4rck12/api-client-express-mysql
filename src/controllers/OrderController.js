@@ -61,7 +61,8 @@ export const updateOrder = async (req, res, next) => {
         }
 
         res.json({
-            message: 'Orden actualizada correctamente'
+            message: 'Orden actualizada correctamente',
+            data: updated
         });
 
     } catch (error) {
