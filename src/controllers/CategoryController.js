@@ -36,8 +36,8 @@ export const getCategoryById = async (req, res, next) => {
 export const createCategory = async (req, res, next) => {
     try {
         const categoryExists = await Category.getByName(req.body.name);
-        
-        if (categoryExists) {
+
+        if (categoryExists.length > 0) {
             return res.status(400).json({
                 message: 'Ya existe una categoria con ese nombre'
             });
