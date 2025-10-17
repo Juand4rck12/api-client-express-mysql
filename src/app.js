@@ -1,8 +1,9 @@
 import express from 'express';
 import CategoryRoutes from './routes/CategoryRoutes.js';
-// import ProductRoutes from './routes/ProductRoutes.js';
+import ProductRoutes from './routes/ProductRoutes.js';
 import OrderRoutes from './routes/OrderRoutes.js';
-// import SupplierRoutes from './routes/SupplierRoutes.js';
+import SupplierRoutes from './routes/SupplierRoutes.js';
+import OrderItemRoutes from './routes/OrderItemRoutes.js';
 import errorHandler from './middlewares/errorHandler.js';
 
 const app = express();
@@ -13,9 +14,10 @@ app.use(express.urlencoded({ extended: true })); // para formularios
 
 // Rutas API
 app.use('/api/categories', CategoryRoutes);
-// app.use('/api/products', ProductRoutes);
+app.use('/api/products', ProductRoutes);
 app.use('/api/orders', OrderRoutes);
-// app.use('/api/suppliers', SupplierRoutes);
+app.use('/api/suppliers', SupplierRoutes);
+app.use('/api/order-items', OrderItemRoutes);
 
 // Ruta de prueba
 app.use('/', (req, res) => {
@@ -25,7 +27,8 @@ app.use('/', (req, res) => {
             categories: '/api/categories',
             products: '/api/products',
             orders: '/api/orders',
-            suppliers: '/api/suppliers'
+            suppliers: '/api/suppliers',
+            orderItems: '/api/order-items'
         }
     });
 });
